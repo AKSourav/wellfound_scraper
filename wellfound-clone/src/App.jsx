@@ -4,6 +4,7 @@ import JobListing from './components/JobListing';
 import Sidebar from './components/Sidebar';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Toaster, toast } from 'react-hot-toast';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
@@ -17,6 +18,7 @@ const App = () => {
       setJobs(data.data);
     }catch(error){
       console.error('Error fetching jobs:', error);
+      toast.error('Failed to fetch jobs. Please try again later.');
     } finally {
       setIsLoading(false);
     }
@@ -28,6 +30,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Toaster position="top-right" />
       <Navbar />
       <SearchBar onSearch={handleSearch} />
       

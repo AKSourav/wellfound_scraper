@@ -97,7 +97,7 @@ async def get_jobs(role: str, location: Optional[str] = "remote", num_pages: Opt
     )
     
 @app.get("/api/v1/jobs/find/{role}", response_model=Dict)
-async def get_jobs(role: str, location: Optional[str] = "remote", num_pages: Optional[int] = 1):
+async def get_jobs(role: str, location: Optional[str] = "remote", num_pages: Optional[int] = 2):
     data =await get_jobs_scrape(role=role, location=location,num_pages=num_pages)
     return {
             "status": "success",
