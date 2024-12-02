@@ -2,9 +2,9 @@
 
 A Python-based web scraper and API service for collecting job listings from Wellfound (formerly AngelList Talent).
 
-## Live API
+## Live
 
-The API is hosted at: [wellfound.anupamkumarsourav.site](https://wellfound.anupamkumarsourav.site)
+The Web App is hosted at: [wellfound.anupamkumarsourav.site](https://wellfound.anupamkumarsourav.site)
 
 ## Features
 
