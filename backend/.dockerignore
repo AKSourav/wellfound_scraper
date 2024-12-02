@@ -1,0 +1,5 @@
+wellfound-clone
+.gitignore
+.dockerignore
+.env
+.venv/
