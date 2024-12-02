@@ -1,3 +1,5 @@
 my-job-board
 .gitignore
 .dockerignore
+.env
+.venv/
