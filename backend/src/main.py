@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 import json
 
 # Import the modified scraper
-from wellfound_scraper import WellfoundJobScraper
+from utils.wellfound_scraper import WellfoundJobScraper
 
 app = FastAPI(
     title="Wellfound Job Scraper API",
