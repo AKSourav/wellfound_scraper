@@ -30,7 +30,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    handleSearch({role: "backend-engineer", location: "remote", role_p: 'Backend Developer', location_p: 'remote'});
+    handleSearch({role: "backend-engineer", location: "remote", role_p: 'Backend Engineeer', location_p: 'remote'});
   }, []);
 
   return (
