@@ -8,24 +8,29 @@ import { Toaster, toast } from 'react-hot-toast';
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
+  const [jobsParams, setJobsParams] = useState({
+    role: 'Backend Engineer',
+    location: 'Remote'
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSearch = async(searchParams) => {
     setIsLoading(true);
     try{
+      setJobsParams({role:searchParams.role_p,location:searchParams.location_p});
       const {data} = await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:8000"}/api/v1/jobs/find/${searchParams.role}?location=${searchParams.location}`);
-      console.log(data.data);
       setJobs(data.data);
     }catch(error){
       console.error('Error fetching jobs:', error);
       toast.error('Failed to fetch jobs. Please try again later.');
+      setJobsParams({role:searchParams.role_p,location:searchParams.location_p});
     } finally {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    handleSearch({role: "backend-developer", location: "remote"});
+    handleSearch({role: "backend-engineer", location: "remote", role_p: 'Backend Developer', location_p: 'remote'});
   }, []);
 
   return (
@@ -38,7 +43,7 @@ const App = () => {
         <div className="flex justify-between">
           <div className="flex-1 max-w-3xl">
             <div className="mb-6">
-              <h1 className="text-xl font-semibold">Remote Backend Engineer Jobs</h1>
+              <h1 className="text-xl font-semibold">{jobsParams?.location.toLowerCase()=='remote'?<>Remote {jobsParams?.role} Jobs</>:<>{jobsParams?.role} jobs in {jobsParams?.location}</>}</h1>
               <p className="text-gray-600">{jobs.length} results total</p>
             </div>
             

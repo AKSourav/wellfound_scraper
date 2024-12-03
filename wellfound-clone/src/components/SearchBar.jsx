@@ -62,7 +62,7 @@ const SearchBar = ({ onSearch }) => {
         e.preventDefault();
         const role_q = role.toLowerCase().split('(')[0].trim().split(" ").join("-");
         const location_q = location.toLowerCase().split('(')[0].trim().split(" ").join("-");
-        onSearch({ role: role_q, location: location_q });
+        onSearch({ role: role_q, location: location_q ,role_p:role,location_p:location});
     };
 
     const clearRole = () => setRole("");
